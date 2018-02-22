@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% csrf_token %}
+<html>
+
+<div class="content2">
+<h1>Activation</h1>
+<h1>Welcome to Share Your Files</h1>
+Hellow, {{ user.username }}!<br/>
+Your account is activated. 
+<br/><br/>
+Hooray! You are logged in and you can go to your 
+<a href="http://localhost:8004/my_page">profile</a> manage files
+</div>
+</html>
+{% endblock %}

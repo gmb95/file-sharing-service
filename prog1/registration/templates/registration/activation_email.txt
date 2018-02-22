@@ -1,0 +1,3 @@
+reg is
+{{ site }}/accounts/activate/{{ activation_key }}/
+spasibo

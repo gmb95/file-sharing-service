@@ -1,0 +1,72 @@
+﻿<html>
+	<head>
+{%load static%}
+<title></title>
+<link href="{{ STATIC_URL }}css/st.css" rel="stylesheet" type="text/css" media="screen" />
+	</head>
+
+<body>
+	<div class="header">
+		<div class="headertext">My Page</div>
+        </div>
+</div>
+	<div class="footer">
+		<div class="text">
+		<a href="#" class="text">Reference</a>
+		<a href="#" class="text">About</a>
+		</div>
+</div>
+<div>
+<div class="content3">
+{% block content %}
+<form action="{% url "profile_image_upload" %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="submit" />
+</form>
+{% endblock %}
+
+{% for n in queryset %}
+{{ n }}
+{% endfor %}
+</div>
+<script>
+    $('#fileupload').submit(function(evnt){
+       if($('#name').val().length <=0){
+           $('#name').attr('style','border-color:red');
+           evnt.preventDefault();
+       }
+       if($('#content').val().length <=0){
+           $('#content').attr('style','border-color:red');
+           evnt.preventDefault();
+       }
+    });
+
+</script>
+<script type="text/javascript">
+function changeFrameOne()
+{
+document.getElementById("changedframe").src="http://localhost:8004/documents";
+}
+function changeFrameTwo()
+{
+document.getElementById("changedframe").src="http://localhost:8004/audio";
+}
+function changeFrameThree()
+{
+document.getElementById("changedframe").src="http://localhost:8004/imeg";
+}
+</script>
+<div>
+ <div class="content1">
+ <iframe id="changedframe" src="http://localhost:8004/documents" frameborder="1" allowfullscreen>
+</iframe>
+ </div>
+<div class="content2">
+<input type="button" onclick="changeFrameOne()" value="Documents">
+<input type="button" onclick="changeFrameTwo()" value="Audio">
+<input type="button" onclick="changeFrameThree()" value="Imeges">
+</div>
+</div>
+</body>
+</html>

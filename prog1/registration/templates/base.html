@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+    <head>
+{%load static%}
+<link href="{{ STATIC_URL }}css/st.css" rel="stylesheet" type="text/css" media="screen" />
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

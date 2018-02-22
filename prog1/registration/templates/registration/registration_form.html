@@ -1,0 +1,37 @@
+
+{% block content %}
+<html>
+<head>
+{%load static%}
+<link href="{{ STATIC_URL }}css/st.css" rel="stylesheet" type="text/css" media="screen" />
+
+</head>
+<body>
+<div class="header">
+<div class="headertext">Registration</div>
+</div>
+<div>
+<div class="content1">
+<div class="text">
+<form method="post" action="">
+<dl class="register">
+{% for field in form %}
+    <dt>{{ field.label_tag }}</dt>
+    <dd class="clearfix">{{ field }}
+    {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}
+    {% if field.errors %}<div class="myerrors clearfix">{{ field.errors }}</div>{% endif %}
+    </dd>
+{% endfor %}
+</dl>
+<input type="submit" value="Registration" / class="clearfix">
+</form>
+</div>
+</div>
+<div class="content2">
+<h1>Welcome to Share Your Files</h1>
+Please register to use the site resources
+</div>
+</div>
+</body>
+</html>
+{% endblock %}
